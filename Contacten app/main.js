@@ -3,8 +3,6 @@ let filterInput = document.getElementById('userInput');
 // Create a EventListener for the filterInput variable
 filterInput.addEventListener('keyup', filterNames);
 
-
-
 /*Function to check if the name is in the list
 and if not removes non matching names with css*/
 function filterNames(){
@@ -53,7 +51,6 @@ function addNewUser(){
   let contactIndex = ul.querySelectorAll('h5.contactIndex');
 
   let all = document.getElementsByTagName("ul")
-  console.log(all);
 
 
   /*Loop to go to all the H5 with a class of contactIndex
@@ -66,9 +63,34 @@ function addNewUser(){
 
        a.outerHTML += li;
 
+    }
+  }
+
+}
 
 
+let deleteUserButton = document.getElementById('deleteUser');
 
+deleteUserButton.addEventListener('click', deleteContact);
+
+function deleteContact(){
+
+  let userToDelete = document.getElementById('userInput').value;
+
+  // Safe the UL so I can get the to the LI
+  let ul = document.getElementById('contacten');
+  // Get al li elements with a class of collection-header to compare them to the input
+  let li = ul.querySelectorAll('li.collection-header');
+
+  for(let i = 0;i < li.length; i++){
+    let a = li[i].getElementsByTagName('a')[0];
+
+    // If the input matches do nothinh
+    if(a.innerHTML == userToDelete){
+      a.innerHTML = '';
+
+
+    // If the input does not match set the css style to none
     }
   }
 
